@@ -1,0 +1,283 @@
+# 基础配置
+backend:
+  name: github
+  # 镜像仓库 fouc3-mirror/hexo-blog 只有读权限，CMS 提交到自己的 fork
+  # 如果以后拿到原仓库写权限，把这里换成对应的 owner/repo
+  repo: Shiroko-awaqwq/hexo-blog
+  branch: main
+  base_url: https://hexo-admin-oauth.13130103.xyz
+  auth_endpoint: auth
+
+# 语言设置
+locale: 'zh_Hans'
+
+# 媒体文件处理
+media_folder: "source/assets/"
+public_folder: "/assets"
+
+collections:
+  - name: "posts"
+    label: "文章"
+    label_singular: "文章"
+    folder: "source/_posts"
+    create: true
+    # slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{slug}}"
+    editor:
+      preview: true
+    fields:
+      - { label: "标题", name: "title", widget: "string" }
+      - label: "发布日期"
+        name: "date"
+        widget: "datetime"
+        date_format: "YYYY-MM-DD"
+        time_format: "HH:mm:ss"
+        format: "YYYY-MM-DD HH:mm:ss"
+      - label: "更新日期"
+        name: "updated"
+        widget: "datetime"
+        date_format: "YYYY-MM-DD"
+        time_format: "HH:mm:ss"
+        format: "YYYY-MM-DD HH:mm:ss"
+        required: false
+      - { label: "标签", name: "tags", widget: "list", required: false, hint: "按回车添加多个" }
+      - { label: "分类", name: "categories", widget: "list", required: false }
+      - { label: "关键字", name: "keywords", widget: "string", required: false }
+      - { label: "文章描述", name: "description", widget: "text", required: false }
+      - { label: "顶部图片 (top_img)", name: "top_img", widget: "image", required: false }
+      - { label: "文章封面 (cover)", name: "cover", widget: "image", required: false }
+      - { label: "开启评论", name: "comments", widget: "boolean", default: true }
+      - { label: "开启文章目录 (TOC)", name: "toc", widget: "boolean", default: true }
+      - { label: "显示目录编号", name: "toc_number", widget: "boolean", default: false, required: false }
+      - { label: "TOC 简洁模式", name: "toc_style_simple", widget: "boolean", default: false, required: false }
+      - { label: "显示版权模块", name: "copyright", widget: "boolean", default: true }
+      - { label: "显示侧边栏", name: "aside", widget: "boolean", default: true }
+      - { label: "代码框自动展开", name: "highlight_shrink", widget: "boolean", default: false, required: false }
+      - { label: "Mathjax", name: "mathjax", widget: "boolean", default: false, required: false }
+      - { label: "Katex", name: "katex", widget: "boolean", default: false, required: false }
+      - { label: "文章过期提醒", name: "noticeOutdate", widget: "boolean", default: false, required: false }
+      - { label: "文章置顶", name: "top", widget: "boolean", required: false, hint: "开启后置顶文章" }
+      - { label: "文章排序", name: "sticky", widget: "string", required: false, hint: "优先级低于top，数字越小越靠前" }
+      - { label: "隐藏文章", name: "hidden", widget: "boolean", default: false, required: false, hint: "开启时不在首页显示，且不出现在sitemap/feed/search中" }
+      - { label: "文章密码", name: "password", widget: "string", required: false, hint: "设置后启用加密保护" }
+      - { label: "私密文章", name: "private", widget: "boolean", default: false, required: false, hint: "开启时完全隐藏（不生成文件）" }
+      - { label: "正文内容", name: "body", widget: "markdown", required: false }
+
+  - name: "shuoshuo"
+    label: "说说"
+    label_singular: "说说"
+    folder: "source/_shuoshuo"
+    create: true
+    # 说说标题可以为空，所以用时间生成唯一文件名
+    slug: "{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}-{{second}}"
+    identifier_field: "date"
+    editor:
+      preview: true
+    fields:
+      - { label: "标题 (仅用于文件名)", name: "title", widget: "string", hint: "简短描述内容", required: false }
+      - label: "作者"
+        name: "author"
+        widget: "string"
+        default: "FouC3"
+        hint: "名称"
+      - label: "头像"
+        name: "avatar"
+        widget: "image"
+        default: "/assets/avatar.jpg"
+        required: false
+        hint: "作者头像图片"
+      - label: "发布时间"
+        name: "date"
+        widget: "datetime"
+        date_format: "YYYY-MM-DD"
+        time_format: "HH:mm:ss"
+        format: "YYYY-MM-DD HH:mm:ss"
+        picker_utc: false
+        hint: "说说发布的时间，会自动添加 +0800 时区"
+      - label: "标签"
+        name: "tags"
+        widget: "list"
+        required: false
+        hint: "按回车添加多个标签"
+      - label: "正文"
+        name: "body"
+        widget: "markdown"
+        required: false
+        hint: "说说的正文内容"
+
+  - name: "pages"
+    label: "页面"
+    files:
+      - label: "留言板"
+        name: "comment_board"
+        file: "source/comment/index.md"
+        fields:
+          - { label: "标题", name: "title", widget: "string" }
+          - { label: "发布日期", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss" }
+          - { label: "更新日期", name: "updated", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss", required: false }
+          - { label: "开启评论", name: "comments", widget: "boolean", default: true }
+          - { label: "显示侧边栏", name: "aside", widget: "boolean", default: true }
+          - { label: "开启 Aplayer", name: "aplayer", widget: "boolean", default: false, required: false }
+          - { label: "页面类型 (type)", name: "type", widget: "string", required: false, hint: "Butterfly 特殊页面需填，如 link, about, tags 等" }
+          - { label: "页面描述", name: "description", widget: "text", required: false }
+          - { label: "关键字", name: "keywords", widget: "string", required: false }
+          - { label: "顶部图片 (top_img)", name: "top_img", widget: "image", required: false }
+          - { label: "显示目录 (TOC)", name: "toc", widget: "boolean", default: false, required: false }
+          - { label: "显示目录编号", name: "toc_number", widget: "boolean", default: false, required: false }
+          - { label: "目录简易样式", name: "toc_style_simple", widget: "boolean", default: false, required: false }
+          - { label: "隐藏页面", name: "hidden", widget: "boolean", default: false, required: false, hint: "开启时不出现在sitemap/feed/search中" }
+          - { label: "页面密码", name: "password", widget: "string", required: false, hint: "设置后启用加密保护" }
+          - { label: "私密页面", name: "private", widget: "boolean", default: false, required: false, hint: "开启时完全隐藏（不生成文件）" }
+          - { label: "正文内容", name: "body", widget: "markdown", required: false }
+      - label: "标签页"
+        name: "tags_page"
+        file: "source/tags/index.md"
+        fields:
+          - { label: "标题", name: "title", widget: "string" }
+          - { label: "发布日期", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss" }
+          - { label: "更新日期", name: "updated", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss", required: false }
+          - { label: "页面类型 (type)", name: "type", widget: "hidden", default: "tags" }
+          - { label: "开启评论", name: "comments", widget: "boolean", default: false }
+          - { label: "显示侧边栏", name: "aside", widget: "boolean", default: true }
+          - { label: "开启 Aplayer", name: "aplayer", widget: "boolean", default: false, required: false }
+          - { label: "页面描述", name: "description", widget: "text", required: false }
+          - { label: "关键字", name: "keywords", widget: "string", required: false }
+          - { label: "顶部图片 (top_img)", name: "top_img", widget: "image", required: false }
+          - { label: "显示目录 (TOC)", name: "toc", widget: "boolean", default: false, required: false }
+          - { label: "显示目录编号", name: "toc_number", widget: "boolean", default: false, required: false }
+          - { label: "目录简易样式", name: "toc_style_simple", widget: "boolean", default: false, required: false }
+          - { label: "隐藏页面", name: "hidden", widget: "boolean", default: false, required: false, hint: "开启时不出现在sitemap/feed/search中" }
+          - { label: "页面密码", name: "password", widget: "string", required: false, hint: "设置后启用加密保护" }
+          - { label: "私密页面", name: "private", widget: "boolean", default: false, required: false, hint: "开启时完全隐藏（不生成文件）" }
+          - { label: "正文内容", name: "body", widget: "markdown", required: false }
+      - label: "分类页"
+        name: "categories_page"
+        file: "source/categories/index.md"
+        fields:
+          - { label: "标题", name: "title", widget: "string" }
+          - { label: "发布日期", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss" }
+          - { label: "更新日期", name: "updated", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss", required: false }
+          - { label: "页面类型 (type)", name: "type", widget: "hidden", default: "categories" }
+          - { label: "开启评论", name: "comments", widget: "boolean", default: false }
+          - { label: "显示侧边栏", name: "aside", widget: "boolean", default: true }
+          - { label: "开启 Aplayer", name: "aplayer", widget: "boolean", default: false, required: false }
+          - { label: "页面描述", name: "description", widget: "text", required: false }
+          - { label: "关键字", name: "keywords", widget: "string", required: false }
+          - { label: "顶部图片 (top_img)", name: "top_img", widget: "image", required: false }
+          - { label: "显示目录 (TOC)", name: "toc", widget: "boolean", default: false, required: false }
+          - { label: "显示目录编号", name: "toc_number", widget: "boolean", default: false, required: false }
+          - { label: "目录简易样式", name: "toc_style_simple", widget: "boolean", default: false, required: false }
+          - { label: "隐藏页面", name: "hidden", widget: "boolean", default: false, required: false, hint: "开启时不出现在sitemap/feed/search中" }
+          - { label: "页面密码", name: "password", widget: "string", required: false, hint: "设置后启用加密保护" }
+          - { label: "私密页面", name: "private", widget: "boolean", default: false, required: false, hint: "开启时完全隐藏（不生成文件）" }
+          - { label: "正文内容", name: "body", widget: "markdown", required: false }
+      - label: "文章统计"
+        name: "charts_page"
+        file: "source/charts/index.md"
+        fields:
+          - { label: "标题", name: "title", widget: "string" }
+          - { label: "发布日期", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss" }
+          - { label: "更新日期", name: "updated", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss", required: false }
+          - { label: "页面类型 (type)", name: "type", widget: "hidden", default: "charts" }
+          - { label: "开启评论", name: "comments", widget: "boolean", default: false }
+          - { label: "显示侧边栏", name: "aside", widget: "boolean", default: true }
+          - { label: "开启 Aplayer", name: "aplayer", widget: "boolean", default: false, required: false }
+          - { label: "页面描述", name: "description", widget: "text", required: false }
+          - { label: "关键字", name: "keywords", widget: "string", required: false }
+          - { label: "顶部图片 (top_img)", name: "top_img", widget: "image", required: false }
+          - { label: "显示目录 (TOC)", name: "toc", widget: "boolean", default: false, required: false }
+          - { label: "显示目录编号", name: "toc_number", widget: "boolean", default: false, required: false }
+          - { label: "目录简易样式", name: "toc_style_simple", widget: "boolean", default: false, required: false }
+          - { label: "隐藏页面", name: "hidden", widget: "boolean", default: false, required: false, hint: "开启时不出现在sitemap/feed/search中" }
+          - { label: "页面密码", name: "password", widget: "string", required: false, hint: "设置后启用加密保护" }
+          - { label: "私密页面", name: "private", widget: "boolean", default: false, required: false, hint: "开启时完全隐藏（不生成文件）" }
+          - { label: "正文内容", name: "body", widget: "markdown", required: false }
+      - label: "隐私政策"
+        name: "statement_page"
+        file: "source/statement/index.md"
+        fields:
+          - { label: "标题", name: "title", widget: "string" }
+          - { label: "发布日期", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss" }
+          - { label: "更新日期", name: "updated", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss", required: false }
+          - { label: "页面类型 (type)", name: "type", widget: "string", required: false }
+          - { label: "开启评论", name: "comments", widget: "boolean", default: false }
+          - { label: "显示侧边栏", name: "aside", widget: "boolean", default: false }
+          - { label: "开启 Aplayer", name: "aplayer", widget: "boolean", default: false, required: false }
+          - { label: "页面描述", name: "description", widget: "text", required: false }
+          - { label: "关键字", name: "keywords", widget: "string", required: false }
+          - { label: "顶部图片 (top_img)", name: "top_img", widget: "image", required: false }
+          - { label: "显示目录 (TOC)", name: "toc", widget: "boolean", default: false, required: false }
+          - { label: "显示目录编号", name: "toc_number", widget: "boolean", default: false, required: false }
+          - { label: "目录简易样式", name: "toc_style_simple", widget: "boolean", default: false, required: false }
+          - { label: "隐藏页面", name: "hidden", widget: "boolean", default: false, required: false, hint: "开启时不出现在sitemap/feed/search中" }
+          - { label: "页面密码", name: "password", widget: "string", required: false, hint: "设置后启用加密保护" }
+          - { label: "私密页面", name: "private", widget: "boolean", default: false, required: false, hint: "开启时完全隐藏（不生成文件）" }
+          - { label: "正文内容", name: "body", widget: "markdown" }
+      - label: "修改内容声明"
+        name: "theme_declaration"
+        file: "source/theme-declaration/index.md"
+        fields:
+          - { label: "标题", name: "title", widget: "string" }
+          - { label: "发布日期", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss" }
+          - { label: "更新日期", name: "updated", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss", required: false }
+          - { label: "页面类型 (type)", name: "type", widget: "string", required: false }
+          - { label: "开启评论", name: "comments", widget: "boolean", default: false }
+          - { label: "显示侧边栏", name: "aside", widget: "boolean", default: false }
+          - { label: "开启 Aplayer", name: "aplayer", widget: "boolean", default: false, required: false }
+          - { label: "页面描述", name: "description", widget: "text", required: false }
+          - { label: "关键字", name: "keywords", widget: "string", required: false }
+          - { label: "顶部图片 (top_img)", name: "top_img", widget: "image", required: false }
+          - { label: "显示目录 (TOC)", name: "toc", widget: "boolean", default: false, required: false }
+          - { label: "显示目录编号", name: "toc_number", widget: "boolean", default: false, required: false }
+          - { label: "目录简易样式", name: "toc_style_simple", widget: "boolean", default: false, required: false }
+          - { label: "隐藏页面", name: "hidden", widget: "boolean", default: false, required: false, hint: "开启时不出现在sitemap/feed/search中" }
+          - { label: "页面密码", name: "password", widget: "string", required: false, hint: "设置后启用加密保护" }
+          - { label: "私密页面", name: "private", widget: "boolean", default: false, required: false, hint: "开启时完全隐藏（不生成文件）" }
+          - { label: "正文内容", name: "body", widget: "markdown", required: false }
+      - label: "关于本站"
+        name: "info_page"
+        file: "source/info/index.md"
+        fields:
+        - { label: "标题", name: "title", widget: "string" }
+        - { label: "发布日期", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss" }
+        - { label: "更新日期", name: "updated", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss", required: false }
+        - { label: "开启评论", name: "comments", widget: "boolean", default: true }
+        - { label: "显示侧边栏", name: "aside", widget: "boolean", default: true }
+        - { label: "开启 Aplayer", name: "aplayer", widget: "boolean", default: false, required: false }
+        - { label: "页面类型 (type)", name: "type", widget: "string", required: false, hint: "Butterfly 特殊页面需填，如 link, about, tags 等" }
+        - { label: "页面描述", name: "description", widget: "text", required: false }
+        - { label: "关键字", name: "keywords", widget: "string", required: false }
+        - { label: "顶部图片 (top_img)", name: "top_img", widget: "image", required: false }
+        - { label: "显示目录 (TOC)", name: "toc", widget: "boolean", default: false, required: false }
+        - { label: "显示目录编号", name: "toc_number", widget: "boolean", default: false, required: false }
+        - { label: "目录简易样式", name: "toc_style_simple", widget: "boolean", default: false, required: false }
+        - { label: "隐藏页面", name: "hidden", widget: "boolean", default: false, required: false, hint: "开启时不出现在sitemap/feed/search中" }
+        - { label: "页面密码", name: "password", widget: "string", required: false, hint: "设置后启用加密保护" }
+        - { label: "私密页面", name: "private", widget: "boolean", default: false, required: false, hint: "开启时完全隐藏（不生成文件）" }
+        - { label: "正文内容", name: "body", widget: "markdown", required: false }
+
+#  - name: "media_manager"
+#    label: "图库管理"
+#    delete: false
+#    editor:
+#      preview: false
+#    files:
+#      - label: "网站背景图库"
+#        name: "background_images"
+#        file: "source/_data/media_gallery.yml"
+#        description: "在这里上传或选择图片，它们将存放在 source/config/img"
+#        fields:
+#          - label: "背景图片列表"
+#            name: "images"
+#            widget: "list"
+#            summary: '{{fields.image}}'
+#            fields:
+#              - { 
+#                  label: "图片", 
+#                  name: "image", 
+#                  widget: "image", 
+#                  media_folder: "source/config/img", 
+#                  public_folder: "/config/img", 
+#                  choose_url: false 
+#                }
+#              - { label: "用途说明", name: "alt", widget: "string", required: false }

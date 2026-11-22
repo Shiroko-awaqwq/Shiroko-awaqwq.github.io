@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Shiroko 的笔记</title>
+  
+  
+  <link href="https://shiroko-awaqwq.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://shiroko-awaqwq.github.io/"/>
+  <updated>2026-01-25T00:31:52.000Z</updated>
+  <id>https://shiroko-awaqwq.github.io/</id>
+  
+  <author>
+    <name>Shiroko</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>置顶文章</title>
+    <link href="https://shiroko-awaqwq.github.io/posts/top-test/"/>
+    <id>https://shiroko-awaqwq.github.io/posts/top-test/</id>
+    <published>2026-01-25T00:31:52.000Z</published>
+    <updated>2026-01-25T00:31:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>这是一篇置顶文章</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;这是一篇置顶文章&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>test</title>
+    <link href="https://shiroko-awaqwq.github.io/posts/test/"/>
+    <id>https://shiroko-awaqwq.github.io/posts/test/</id>
+    <published>2026-01-25T00:31:52.000Z</published>
+    <updated>2026-01-25T00:31:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>这是一篇测试文章</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;这是一篇测试文章&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>

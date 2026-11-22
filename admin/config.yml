@@ -1,12 +1,9 @@
 # 基础配置
 backend:
   name: github
-  # 镜像仓库 fouc3-mirror/hexo-blog 只有读权限，CMS 提交到自己的 fork
-  # 如果以后拿到原仓库写权限，把这里换成对应的 owner/repo
+  # 镜像仓库 fouc3-mirror/hexo-blog 只有读权限，后台提交到自己的私有仓库
   repo: Shiroko-awaqwq/hexo-blog
   branch: main
-  base_url: https://hexo-admin-oauth.13130103.xyz
-  auth_endpoint: auth
 
 # 语言设置
 locale: 'zh_Hans'

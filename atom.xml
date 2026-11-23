@@ -6,7 +6,7 @@
   <link href="https://shiroko-awaqwq.github.io/atom.xml" rel="self"/>
   
   <link href="https://shiroko-awaqwq.github.io/"/>
-  <updated>2026-01-25T00:31:52.000Z</updated>
+  <updated>2026-11-23T15:50:00.000Z</updated>
   <id>https://shiroko-awaqwq.github.io/</id>
   
   <author>
@@ -17,44 +17,23 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>test</title>
-    <link href="https://shiroko-awaqwq.github.io/posts/test/"/>
-    <id>https://shiroko-awaqwq.github.io/posts/test/</id>
-    <published>2026-01-25T00:31:52.000Z</published>
-    <updated>2026-01-25T00:31:52.000Z</updated>
+    <title>开始：这个博客用来做什么</title>
+    <link href="https://shiroko-awaqwq.github.io/posts/hello/"/>
+    <id>https://shiroko-awaqwq.github.io/posts/hello/</id>
+    <published>2026-11-23T15:50:00.000Z</published>
+    <updated>2026-11-23T15:50:00.000Z</updated>
     
-    <content type="html"><![CDATA[<p>这是一篇测试文章</p>]]></content>
+    <content type="html"><![CDATA[<p>这里是 Shiroko 的博客。</p><p>平时折腾的东西不少，踩过的坑也不少，与其让它们散在聊天记录和收藏夹里，不如整理成能反复查阅的文档放这里。之后主要会写这些：</p><ul><li>工具与软件的配置、踩坑记录</li><li>一些实用的小技巧和操作步骤</li><li>折腾过程中值得留下的经验</li></ul><p>内容会持续补充，结构也会慢慢调整。如果你也在折腾类似的东西，希望这些记录能帮你少走一点弯路。</p><p>这篇是第一篇文章，同时也是首页的入口，不需要的话可以直接删掉。</p>]]></content>
     
     
-      
-      
-    <summary type="html">&lt;p&gt;这是一篇测试文章&lt;/p&gt;
-</summary>
-      
+    <summary type="html">第一篇文章，说明本站的定位和内容方向。</summary>
     
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>置顶文章</title>
-    <link href="https://shiroko-awaqwq.github.io/posts/top-test/"/>
-    <id>https://shiroko-awaqwq.github.io/posts/top-test/</id>
-    <published>2026-01-25T00:31:52.000Z</published>
-    <updated>2026-01-25T00:31:52.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>这是一篇置顶文章</p>]]></content>
+    <category term="随笔" scheme="https://shiroko-awaqwq.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-      
-      
-    <summary type="html">&lt;p&gt;这是一篇置顶文章&lt;/p&gt;
-</summary>
-      
-    
-    
-    
+    <category term="随笔" scheme="https://shiroko-awaqwq.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   

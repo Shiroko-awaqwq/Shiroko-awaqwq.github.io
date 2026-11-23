@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>test</title>
-    <url>/posts/test/</url>
-    <content><![CDATA[<p>这是一篇测试文章</p>
+    <title>开始：这个博客用来做什么</title>
+    <url>/posts/hello/</url>
+    <content><![CDATA[<p>这里是 Shiroko 的博客。</p>
+<p>平时折腾的东西不少，踩过的坑也不少，与其让它们散在聊天记录和收藏夹里，不如整理成能反复查阅的文档放这里。之后主要会写这些：</p>
+<ul>
+<li>工具与软件的配置、踩坑记录</li>
+<li>一些实用的小技巧和操作步骤</li>
+<li>折腾过程中值得留下的经验</li>
+</ul>
+<p>内容会持续补充，结构也会慢慢调整。如果你也在折腾类似的东西，希望这些记录能帮你少走一点弯路。</p>
+<p>这篇是第一篇文章，同时也是首页的入口，不需要的话可以直接删掉。</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>置顶文章</title>
-    <url>/posts/top-test/</url>
-    <content><![CDATA[<p>这是一篇置顶文章</p>
-]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
   </entry>
 </search>

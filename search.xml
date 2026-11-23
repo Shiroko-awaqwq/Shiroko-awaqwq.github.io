@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>test</title>
+    <url>/posts/test/</url>
+    <content><![CDATA[<p>这是一篇测试文章</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>置顶文章</title>
+    <url>/posts/top-test/</url>
+    <content><![CDATA[<p>这是一篇置顶文章</p>
+]]></content>
+  </entry>
+</search>

@@ -24,7 +24,7 @@
 <meta property="article:author" content="Shiroko">
 <meta property="article:tag" content="Vibe Coder,技术文档,教程,Hexo,博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://shiroko-awaqwq.github.io/assets/avatar.png"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://shiroko-awaqwq.github.io/statement/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="preload" href="/config/img/bg-light.webp" as="image" fetchpriority="high"><link rel="preload" href="/fonts/Yozai.ttf" as="font" type="font/ttf" crossorigin=""><style>#web_bg {
+<meta name="twitter:image" content="https://shiroko-awaqwq.github.io/assets/avatar.png"><link rel="shortcut icon" href="/assets/favicon.ico"><link rel="canonical" href="https://shiroko-awaqwq.github.io/statement/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preload" href="/config/img/bg-light.webp" as="image" fetchpriority="high"><link rel="preload" href="/fonts/Yozai.ttf" as="font" type="font/ttf" crossorigin=""><style>#web_bg {
   position: fixed;
   z-index: -999;
   width: 100%;
@@ -497,10 +497,14 @@ btf.addGlobalFn('pjaxSend', () => {
 
 if (true) {
   window.liushen.randomLink();
-  document.addEventListener("DOMContentLoaded", () => {
-    window.liushen.randomLink();
-    window.liushen.initFooterBackground();
-  });
+  window.liushen.initFooterBackground();
+  if (!window.liushen.footerHookReady) {
+    window.liushen.footerHookReady = true;
+    document.addEventListener("pjax:complete", () => {
+      window.liushen.randomLink();
+      window.liushen.initFooterBackground();
+    });
+  }
   window.liushen.runtime();
 } else {
   window.liushen.randomLink();
@@ -552,11 +556,4 @@ if (true) {
       pjax.loadUrl('/404.html')
     }
   })
-})()</script><script>if (window.ANALYTICS_ALLOWED) {
-  var script = document.createElement('script');
-  script.async = true;
-  script.setAttribute('data-pjax', '');
-  script.src = '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js';
-  document.body.appendChild(script);
-}
-</script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索全站文章" type="text"></div></div><hr><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><script src="/js/search/local-search.js?v=5.0.0"></script></div><div id="search-mask"></div></div></body></html>
+})()</script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索全站文章" type="text"></div></div><hr><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><script src="/js/search/local-search.js?v=5.0.0"></script></div><div id="search-mask"></div></div></body></html>
